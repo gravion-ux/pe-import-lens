@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pe-import-lens — PE import table scanner in your browser</title>
+<meta name="description" content="Drop a Windows .exe or .dll and inspect its import table: injection, hollowing, keylogging and anti-analysis imports flagged instantly. The file is parsed locally and never uploaded.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">pe-import-lens</div>
+  <nav>
+    <a href="https://github.com/gravion-ux/pe-import-lens">GitHub</a>
+    <a href="https://gravion-ux.github.io/portfolio/">Portfolio</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>See what a Windows binary asks Windows for</h1>
+    <p>Drop an <code>.exe</code> or <code>.dll</code> and pe-import-lens reads its import
+      table — the same parser as the
+      <a href="https://github.com/gravion-ux/pe-import-lens">CLI tool</a> — flagging
+      process-injection, hollowing, keylogging and anti-analysis imports.</p>
+    <p class="privacy">The file is parsed in this tab only. It is never uploaded, executed or stored.</p>
+  </section>
+
+  <section class="card" id="drop">
+    <label for="file">PE file (.exe / .dll)</label>
+    <input type="file" id="file" accept=".exe,.dll,.sys,.ocx">
+    <div class="actions">
+      <span class="muted">…or drag &amp; drop the file here.</span>
+      <button id="sample" class="primary">Try the synthetic sample</button>
+    </div>
+  </section>
+
+  <section id="results" aria-live="polite"></section>
+
+  <section class="card muted-card">
+    <h2>What gets flagged</h2>
+    <ul>
+      <li><strong>High</strong> — VirtualAllocEx, WriteProcessMemory, CreateRemoteThread, NtUnmapViewOfSection (injection / hollowing primitives)</li>
+      <li><strong>Medium</strong> — SetWindowsHookExA/W, GetAsyncKeyState (hooking / keylogging patterns)</li>
+      <li><strong>Low</strong> — IsDebuggerPresent, CheckRemoteDebuggerPresent, VirtualProtect, ShellExecuteA/W</li>
+    </ul>
+    <p>A flag is a review prompt, not a verdict — plenty of legitimate software imports these.
+      For batch scans and JSON output, use the CLI from the GitHub repo.</p>
+  </section>
+</main>
+
+<footer>
+  <span>Built by <a href="https://github.com/gravion-ux">gravion-ux</a> · MIT licensed</span>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

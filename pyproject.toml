@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pe-import-lens"
+version = "1.0.0"
+description = "Dependency-free PE import-table triage for risky Windows API imports"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+pe-import-lens = "pe_import_lens.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pe_import_lens*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
