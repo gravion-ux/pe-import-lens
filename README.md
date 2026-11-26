@@ -1,10 +1,10 @@
+<p align="center"><img src="assets/banner.svg" alt="pe-import-lens banner" width="100%"/></p>
+
 # PE Import Lens
 
-Dependency-free triage of Windows PE import tables. PE Import Lens parses
-PE32 and PE32+ import directories with nothing but the Python standard
-library, lists every imported function, and flags imports associated with
-process injection, process hollowing, keylogging, and anti-analysis
-checks. The target file is only parsed, never executed.
+[![CI](https://github.com/gravion-ux/pe-import-lens/actions/workflows/ci.yml/badge.svg)](https://github.com/gravion-ux/pe-import-lens/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+**Dependency-free triage of Windows PE import tables.**
 
 Built as a companion to WinAPI Sentinel: source-level review on one side,
 binary-level import triage on the other.
