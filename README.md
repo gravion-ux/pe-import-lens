@@ -6,9 +6,8 @@ library, lists every imported function, and flags imports associated with
 process injection, process hollowing, keylogging, and anti-analysis
 checks. The target file is only parsed, never executed.
 
-Built as a companion to WinAPI Sentinel after passing Red Team Leaders'
-Certified Offensive Windows API (COWA) exam: source-level review on one
-side, binary-level import triage on the other.
+Built as a companion to WinAPI Sentinel: source-level review on one side,
+binary-level import triage on the other.
 
 ## Usage
 
