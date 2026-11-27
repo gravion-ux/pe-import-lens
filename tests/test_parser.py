@@ -56,3 +56,12 @@ def test_flags_injection_imports():
 def test_rejects_non_pe():
     with pytest.raises(ValueError):
         parse_imports(b"not a pe file at all, just text padding........")
+
+def test_rejects_non_pe_input():
+    with pytest.raises(ValueError):
+        parse_imports(b"this is not a PE file")
+
+
+def test_rejects_empty_input():
+    with pytest.raises(ValueError):
+        parse_imports(b"")

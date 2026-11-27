@@ -190,7 +190,7 @@ if (typeof document !== "undefined") {
         byDll.get(e.dll).push(e.name);
       }
       const flagRows = flagged.map((f) =>
-        `<div class="id-row"><span class="chip sev-${f.severity}">${f.severity}</span>
+        `<div class="id-row"><span class="chip sev-${esc(f.severity)}">${esc(f.severity)}</span>
          <code>${esc(f.dll)}!${esc(f.name)}</code><span class="muted">${esc(f.note)}</span></div>`).join("");
       const dllPanels = [...byDll.entries()].map(([dll, names]) => `
         <div class="panel"><h3>${esc(dll)} (${names.length})</h3>
